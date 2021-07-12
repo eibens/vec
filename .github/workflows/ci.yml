@@ -8,7 +8,7 @@ jobs:
       - uses: denoland/setup-deno@v1
       - shell: bash
         run: |
-          curl -sL https://deno.land/x/edcb@v0.4.1/edcb.sh > ~/ecli.sh
-          chmod +x ~/ecli.sh
-          PATH=$PATH:~/ecli.sh
+          curl -sL https://deno.land/x/edcb@v0.4.1/edcb.sh > ~/ecli
+          chmod +x ~/ecli
+          PATH=$PATH:~/ecli
           deno run -A cli.ts
