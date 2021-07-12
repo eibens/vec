@@ -171,3 +171,11 @@ export function normalize(v: Vec4): VecN;
 export function normalize(v: VecN): VecN {
   return vecn.normalize(v);
 }
+
+export function shift(v: VecN, n: number): VecN;
+export function shift(v: Vec2, n: number): VecN;
+export function shift(v: Vec3, n: number): VecN;
+export function shift(v: Vec4, n: number): VecN;
+export function shift(v: VecN, n: number): VecN {
+  return vecn.shift(v, n);
+}

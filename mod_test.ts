@@ -17,6 +17,7 @@ import {
   plus,
   reflect,
   refract,
+  shift,
   sum,
   times,
   zero,
@@ -104,4 +105,8 @@ Deno.test("length", () => {
 Deno.test("normalize", () => {
   assertEquals(normalize([2, 0]), [1, 0]);
   assertEquals(normalize([0, 0]), [0, 0]);
+});
+
+Deno.test("shift", () => {
+  assertEquals(shift([0, 1, 2, 3], 2), [2, 3, 0, 1]);
 });

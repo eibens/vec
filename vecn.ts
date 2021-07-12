@@ -100,3 +100,9 @@ export function length(v: VecN): number {
 export function normalize(v: VecN): VecN {
   return isZero(v) ? v : div(v, length(v));
 }
+
+export function shift(v: VecN, n: number): VecN {
+  const m = v.length;
+  n = ((n % m) + m) % m;
+  return [...v.slice(n), ...v.slice(0, n)];
+}
