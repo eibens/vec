@@ -9,6 +9,6 @@ jobs:
       - shell: bash
         run: |
           curl -sL https://deno.land/x/edcb@v0.4.1/edcb.sh > ~/ecli.sh
-          chmod +x ecli.sh
-          PATH=$PATH:~\ecli.sh
+          chmod +x ~/ecli.sh
+          PATH=$PATH:~/ecli.sh
           deno run -A cli.ts
