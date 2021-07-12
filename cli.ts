@@ -59,12 +59,19 @@ function start() {
 }
 
 async function build() {
+  console.log("[build] installing...");
+  const edcbUrl = "https://deno.land/x/edcb@v0.4.1/edcb.sh";
+  const edcbBash = await (await fetch(edcbUrl)).text();
+  const edcbFile = await Deno.makeTempFile();
+  await Deno.writeTextFile(edcbFile, edcbBash);
+
   console.log("[build] starting...");
   await generate();
   const process = Deno.run({
-    cmd: ["edcb"],
+    cmd: ["sh", edcbFile],
   });
   const status = await process.status();
+
   if (status.success) {
     console.log("[build] success!");
   } else {
