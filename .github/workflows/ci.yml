@@ -1,0 +1,12 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: denoland/setup-deno@v1
+      - shell: bash
+        run: |
+          curl -sL https://deno.land/x/edcb@v0.4.1/edcb.sh > ~/bin/edcb && chmod +x ~/bin/edcb
+          deno run -A cli.ts
