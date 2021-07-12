@@ -103,7 +103,8 @@ function Docs(func: Func): string {
   if (!func.jsDoc) return "";
   const body = func.jsDoc
     .split("\n")
-    .map((x) => ` * ${x}`)
+    .map((line) => line.trim() ? " " + line : "")
+    .map((line) => ` *${line}`)
     .join("\n");
   return `/**\n${body}\n */\n`;
 }

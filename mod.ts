@@ -1,7 +1,7 @@
 // NOTE: This file was generated automatically.
 // Direct changes to this file will be overwritten.
 // Generate this file by running `deno run -A cli.ts
-import * as vecn from "./vecn.ts"
+import * as vecn from "./vecn.ts";
 
 export type VecN<X = number> = X[];
 export type Vec2<X = number> = [X, X];
@@ -34,7 +34,7 @@ export function negate(x: VecN): VecN {
 
 /**
  * Calculates the sum of the vector components.
- * 
+ *
  * @param x is a vector.
  * @returns the sum of the components.
  */
@@ -80,7 +80,7 @@ export function dot(a: VecN, b: VecN): number {
 
 /**
  * Multiplies the components by a number.
- * 
+ *
  * @param x is a vector.
  * @param t is the factor.
  * @returns a new scaled vector.
@@ -95,7 +95,7 @@ export function mul(x: VecN, t: number): VecN {
 
 /**
  * Divides the components by a number.
- * 
+ *
  * @param x is a vector.
  * @param t is the divisor.
  * @returns a new scaled vector.
