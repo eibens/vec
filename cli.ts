@@ -20,7 +20,7 @@ PERMISSIONS
 \t--allow-read=vecn.ts
 \t\tFor reading the source code.
 
-\t--allow-run=deno,edcb
+\t--allow-run=deno,bash
 \t\tFor parsing documentation from vecn.ts.
 `;
 
@@ -60,18 +60,14 @@ function start() {
 
 async function build() {
   console.log("[build] installing...");
-  const edcbUrl = "https://deno.land/x/edcb@v0.4.1/edcb.sh";
-  const edcbBash = await (await fetch(edcbUrl)).text();
-  const edcbFile = await Deno.makeTempFile();
-  await Deno.writeTextFile(edcbFile, edcbBash);
-
-  console.log("[build] starting...");
-  await generate();
-  const process = Deno.run({
-    cmd: ["sh", edcbFile],
-  });
-  const status = await process.status();
-
+  const status = await Deno.run({
+    cmd: [
+      "deno",
+      "run",
+      "-A",
+      "https://deno.land/x/edcb@v0.5.1/cli.ts",
+    ],
+  }).status();
   if (status.success) {
     console.log("[build] success!");
   } else {
